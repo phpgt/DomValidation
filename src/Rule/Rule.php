@@ -19,10 +19,13 @@ abstract class Rule {
 		return $this->attributes;
 	}
 
-	/** @param array<string, string> $inputKvp */
+	/**
+	 * @param string|array<string> $value Either a single string or multiple string values
+	 * @param array<string, string> $inputKvp
+	 */
 	abstract public function isValid(
 		Element $element,
-		string $value,
+		string|array $value,
 		array $inputKvp,
 	):bool;
 

@@ -8,7 +8,7 @@ class MaxLength extends Rule {
 		"maxlength"
 	];
 
-	public function isValid(Element $element, string $value, array $inputKvp):bool {
+	public function isValid(Element $element, string|array $value, array $inputKvp):bool {
 		$maxLength = $element->getAttribute("maxlength");
 		return strlen($value) <= $maxLength;
 	}

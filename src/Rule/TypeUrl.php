@@ -8,7 +8,7 @@ class TypeUrl extends Rule {
 		"type=url",
 	];
 
-	public function isValid(Element $element, string $value, array $inputKvp):bool {
+	public function isValid(Element $element, string|array $value, array $inputKvp):bool {
 		return $value === ""
 		|| filter_var($value, FILTER_VALIDATE_URL) !== false;
 	}

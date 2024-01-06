@@ -5,7 +5,7 @@ use Gt\Dom\Element;
 use Gt\Dom\ElementType;
 
 class SelectElement extends Rule {
-	public function isValid(Element $element, string $value, array $inputKvp):bool {
+	public function isValid(Element $element, string|array $value, array $inputKvp):bool {
 		$availableValues = [];
 
 		if($element->elementType !== ElementType::HTMLSelectElement) {

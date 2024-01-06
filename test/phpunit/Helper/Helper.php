@@ -224,6 +224,29 @@ HTML;
 </form>
 HTML;
 
+	const HTML_CHECKBOX = <<<HTML
+<!doctype html>
+<form method="post">
+	<fieldset>
+		<legend>Available currencies</legend>
+		<label>
+			<input type="checkbox" name="currency[]" value="GBP" />
+			<span>£ Pound (GBP)</span>
+		</label>
+		<label>
+			<input type="checkbox" name="currency[]" value="USD" />
+			<span>$ Dollar (USD)</span>
+		</label>
+		<label>
+			<input type="checkbox" name="currency[]" value="EUR" />
+			<span>€ Pound (EUR)</span>
+		</label>
+	</fieldset>
+		
+	<button name="do" value="submit">Submit</button>
+</form>
+HTML;
+
 	const HTML_TWITTER = <<<HTML
 <!doctype html>
 <form method="post">

@@ -5,14 +5,14 @@ use Gt\Dom\Element;
 use Gt\Dom\ElementType;
 use Gt\DomValidation\Rule\Trait\Checkable;
 
-class TypeRadio extends Rule {
+class TypeCheckbox extends Rule {
 	use Checkable;
 
 	public function isValid(Element $element, string|array $value, array $inputKvp):bool {
 		if($element->elementType !== ElementType::HTMLInputElement) {
 			return true;
 		}
-		if($element->type !== "radio") {
+		if($element->type !== "checkbox") {
 			return true;
 		}
 

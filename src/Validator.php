@@ -18,7 +18,7 @@ class Validator {
 		$this->rules = $rules;
 	}
 
-	/** @param iterable<string, string> $inputKvp Associative array of user input */
+	/** @param iterable<string, string|array<string>> $inputKvp Associative array of user input */
 	public function validate(Element $form, iterable|object $inputKvp):void {
 		$this->errorList = new ErrorList();
 
@@ -51,7 +51,7 @@ class Validator {
 
 	/**
 	 * @param array<Rule> $ruleArray
-	 * @param array<string, string> $inputKvp
+	 * @param array<string, string|array<string>> $inputKvp
 	 */
 	protected function buildErrorList(
 		Element $form,
@@ -62,12 +62,13 @@ class Validator {
 		/** @var Element $element */
 		foreach ($form->querySelectorAll("[$attrString]") as $element) {
 			$name = $element->getAttribute("name");
+			$name = strtok($name, "[]");
 
 			foreach ($ruleArray as $rule) {
 				if (!$rule->isValid($element, $inputKvp[$name] ?? "", $inputKvp)) {
 					$this->errorList->add(
 						$element,
-						$rule->getHint($element, $inputKvp[$name] ?? "")
+						$rule->getHint($element, $this->normalise($inputKvp[$name]))
 					);
 				}
 			}
@@ -96,5 +97,13 @@ class Validator {
 			$array[$key] = $value;
 		}
 		return $array;
+	}
+
+	private function normalise(array|string|null $input):string {
+		if(is_string($input)) {
+			return $input;
+		}
+
+		return implode(", ", $input ?? []);
 	}
 }

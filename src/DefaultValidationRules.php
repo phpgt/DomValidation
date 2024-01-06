@@ -4,6 +4,7 @@ namespace Gt\DomValidation;
 use Gt\DomValidation\Rule\MaxLength;
 use Gt\DomValidation\Rule\MinLength;
 use Gt\DomValidation\Rule\Pattern;
+use Gt\DomValidation\Rule\TypeCheckbox;
 use Gt\DomValidation\Rule\TypeRadio;
 use Gt\DomValidation\Rule\Required;
 use Gt\DomValidation\Rule\SelectElement;
@@ -25,6 +26,7 @@ class DefaultValidationRules extends ValidationRules {
 			new MinLength(),
 			new MaxLength(),
 			new TypeRadio(),
+			new TypeCheckbox(),
 		];
 	}
 }

@@ -8,7 +8,7 @@ class MinLength extends Rule {
 		"minlength"
 	];
 
-	public function isValid(Element $element, string $value, array $inputKvp):bool {
+	public function isValid(Element $element, string|array $value, array $inputKvp):bool {
 		$minLength = $element->getAttribute("minlength");
 		return strlen($value) >= $minLength;
 	}

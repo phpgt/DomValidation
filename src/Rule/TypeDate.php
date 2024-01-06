@@ -20,18 +20,14 @@ class TypeDate extends Rule {
 		"type=time",
 	];
 
-	public function isValid(
-		Element $element,
-		string $value,
-		array $inputKvp
-	):bool {
+	public function isValid(Element $element, string|array $value, array $inputKvp):bool {
 		if($value === "") {
 			return true;
 		}
 
 		$dateTime = $this->extractDateTime(
 			$value,
-			$element->getAttribute("type")
+			$element->getAttribute("type") ?? ""
 		);
 
 		return !is_null($dateTime);

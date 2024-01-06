@@ -40,7 +40,7 @@ class ValidatorTest extends TestCase {
 	 */
 	public function testCustomRule() {
 		$usernameNotWithinPasswordRule = new class extends Rule {
-			public function isValid(Element $element, string $value, array $inputKvp):bool {
+			public function isValid(Element $element, string|array $value, array $inputKvp):bool {
 				if($element->type !== "password") {
 					return true;
 				}
