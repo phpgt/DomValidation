@@ -128,3 +128,9 @@ When using `<select>` and `<input type="radio" />` elements, their contained opt
 
 [dom]: https://www.php.gt/dom
 [webengine]: https://www.php.gt/webengine
+
+# Proudly sponsored by
+
+[JetBrains Open Source sponsorship program](https://www.jetbrains.com/community/opensource/)
+
+[![JetBrains logo.](https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg)](https://www.jetbrains.com/community/opensource/)
