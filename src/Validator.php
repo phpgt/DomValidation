@@ -18,7 +18,10 @@ class Validator {
 		$this->rules = $rules;
 	}
 
-	/** @param iterable<string, string|array<string>> $inputKvp Associative array of user input */
+	/**
+	 * @param iterable<string, scalar|Stringable|array<array-key, scalar|Stringable|null>|null>|object $inputKvp
+	 * Associative array of user input.
+	 */
 	public function validate(Element $form, iterable|object $inputKvp):void {
 		$this->errorList = new ErrorList();
 
@@ -63,12 +66,13 @@ class Validator {
 		foreach ($form->querySelectorAll("[$attrString]") as $element) {
 			$name = $element->getAttribute("name");
 			$name = strtok($name, "[]");
+			$value = $this->normaliseInputValue($inputKvp[$name] ?? "");
 
 			foreach ($ruleArray as $rule) {
-				if (!$rule->isValid($element, $inputKvp[$name] ?? "", $inputKvp)) {
+				if (!$rule->isValid($element, $value, $inputKvp)) {
 					$this->errorList->add(
 						$element,
-						$rule->getHint($element, $this->normalise($inputKvp[$name]))
+						$rule->getHint($element, $this->normalise($value))
 					);
 				}
 			}
@@ -99,6 +103,23 @@ class Validator {
 		return $array;
 	}
 
+	/** @return string|array<string> */
+	private function normaliseInputValue(mixed $input):string|array {
+		if(is_array($input)) {
+			return array_map(
+				fn(mixed $value):string => (string)($value ?? ""),
+				$input
+			);
+		}
+
+		if(is_scalar($input) || $input instanceof Stringable) {
+			return (string)$input;
+		}
+
+		return "";
+	}
+
+	/** @param array<string>|string|null $input */
 	private function normalise(array|string|null $input):string {
 		if(is_string($input)) {
 			return $input;

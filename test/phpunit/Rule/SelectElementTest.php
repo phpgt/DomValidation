@@ -8,7 +8,7 @@ use Gt\DomValidation\Validator;
 use PHPUnit\Framework\TestCase;
 
 class SelectElementTest extends TestCase {
-	public function testSelect() {
+	public function testSelect():void {
 		$document = new HTMLDocument(Helper::HTML_SELECT);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -26,7 +26,7 @@ class SelectElementTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testSelectMissingRequired() {
+	public function testSelectMissingRequired():void {
 		$document = new HTMLDocument(Helper::HTML_SELECT);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -46,7 +46,7 @@ class SelectElementTest extends TestCase {
 		}
 	}
 
-	public function testSelectTextContent() {
+	public function testSelectTextContent():void {
 		$document = new HTMLDocument(Helper::HTML_SELECT);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -65,7 +65,7 @@ class SelectElementTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testSelectTextContentInvalid() {
+	public function testSelectTextContentInvalid():void {
 		$document = new HTMLDocument(Helper::HTML_SELECT);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -86,7 +86,7 @@ class SelectElementTest extends TestCase {
 		}
 	}
 
-	public function testSelectValue_textContent() {
+	public function testSelectValue_textContent():void {
 		$document = new HTMLDocument(Helper::HTML_SELECT);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -106,7 +106,7 @@ class SelectElementTest extends TestCase {
 		self::assertSame("There is 1 invalid field", $exception->getMessage());
 	}
 
-	public function testSelectValue_invalid() {
+	public function testSelectValue_invalid():void {
 		$document = new HTMLDocument(Helper::HTML_SELECT);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -127,7 +127,7 @@ class SelectElementTest extends TestCase {
 		}
 	}
 
-	public function testSelectTwoInvalidOptionsAndOneMissing() {
+	public function testSelectTwoInvalidOptionsAndOneMissing():void {
 		$document = new HTMLDocument(Helper::HTML_SELECT);
 		$form = $document->forms[0];
 		$validator = new Validator();

@@ -8,7 +8,7 @@ use Gt\DomValidation\Validator;
 use PHPUnit\Framework\TestCase;
 
 class MaxLengthTest extends TestCase {
-	public function testMaxLengthOK() {
+	public function testMaxLengthOK():void {
 		$document = new HTMLDocument(Helper::HTML_TWITTER);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -25,7 +25,7 @@ class MaxLengthTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testMaxLength() {
+	public function testMaxLength():void {
 		$document = new HTMLDocument(Helper::HTML_TWITTER);
 		$form = $document->forms[0];
 		$validator = new Validator();

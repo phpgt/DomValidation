@@ -21,7 +21,7 @@ abstract class Rule {
 
 	/**
 	 * @param string|array<string> $value Either a single string or multiple string values
-	 * @param array<string, string> $inputKvp
+	 * @param array<string, string|array<string>> $inputKvp
 	 */
 	abstract public function isValid(
 		Element $element,

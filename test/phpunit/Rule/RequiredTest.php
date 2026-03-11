@@ -9,7 +9,7 @@ use Gt\DomValidation\Validator;
 use PHPUnit\Framework\TestCase;
 
 class RequiredTest extends TestCase {
-	public function testSimpleMissingRequiredInput() {
+	public function testSimpleMissingRequiredInput():void {
 		$document = new HTMLDocument(Helper::HTML_USERNAME_PASSWORD);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -22,7 +22,7 @@ class RequiredTest extends TestCase {
 		]);
 	}
 
-	public function testSimpleMissingBothRequiredInputs() {
+	public function testSimpleMissingBothRequiredInputs():void {
 		$document = new HTMLDocument(Helper::HTML_USERNAME_PASSWORD);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -33,7 +33,7 @@ class RequiredTest extends TestCase {
 		$validator->validate($form, ["something" => "nothing"]);
 	}
 
-	public function testSimpleMissingRequiredInputErrorList() {
+	public function testSimpleMissingRequiredInputErrorList():void {
 		$document = new HTMLDocument(Helper::HTML_USERNAME_PASSWORD);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -48,7 +48,7 @@ class RequiredTest extends TestCase {
 		}
 	}
 
-	public function testSimpleEmptyRequiredInputErrorList() {
+	public function testSimpleEmptyRequiredInputErrorList():void {
 		$document = new HTMLDocument(Helper::HTML_USERNAME_PASSWORD);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -67,7 +67,7 @@ class RequiredTest extends TestCase {
 		}
 	}
 
-	public function testNumberFieldRequiredButEmpty() {
+	public function testNumberFieldRequiredButEmpty():void {
 		$document = new HTMLDocument(Helper::HTML_PATTERN_CREDIT_CARD_ALL_REQUIRED_FIELDS);
 		$form = $document->forms[0];
 		$validator = new Validator();

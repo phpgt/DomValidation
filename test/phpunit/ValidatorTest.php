@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class ValidatorTest extends TestCase {
-	public function testSimpleValidInput() {
+	public function testSimpleValidInput():void {
 		$document = new HTMLDocument(Helper::HTML_USERNAME_PASSWORD);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -38,7 +38,7 @@ class ValidatorTest extends TestCase {
 	 * In this example, the password field will be invalid if it contains
 	 * the username.
 	 */
-	public function testCustomRule() {
+	public function testCustomRule():void {
 		$usernameNotWithinPasswordRule = new class extends Rule {
 			public function isValid(Element $element, string|array $value, array $inputKvp):bool {
 				if($element->type !== "password") {

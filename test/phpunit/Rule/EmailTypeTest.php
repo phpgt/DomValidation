@@ -8,7 +8,7 @@ use Gt\DomValidation\Validator;
 use PHPUnit\Framework\TestCase;
 
 class EmailTypeTest extends TestCase {
-	public function testEmail() {
+	public function testEmail():void {
 		$document = new HTMLDocument(Helper::HTML_USER_PROFILE);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -29,7 +29,7 @@ class EmailTypeTest extends TestCase {
 // There's no need to test every permeation of invalid email addresses,
 // because we can be safe in the assumption that filter_var is already
 // well tested.
-	public function testEmailInvalid() {
+	public function testEmailInvalid():void {
 		$document = new HTMLDocument(Helper::HTML_USER_PROFILE);
 		$form = $document->forms[0];
 		$validator = new Validator();

@@ -8,7 +8,7 @@ use Gt\DomValidation\Validator;
 use PHPUnit\Framework\TestCase;
 
 class UrlTypeTest extends TestCase {
-	public function testUrl() {
+	public function testUrl():void {
 		$document = new HTMLDocument(Helper::HTML_USER_PROFILE);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -28,7 +28,7 @@ class UrlTypeTest extends TestCase {
 // There's no need to test every permeation of invalid URLs,
 // because we can be safe in the assumption that filter_var is already
 // well tested.
-	public function testUrlInvalid() {
+	public function testUrlInvalid():void {
 		$document = new HTMLDocument(Helper::HTML_USER_PROFILE);
 		$form = $document->forms[0];
 		$validator = new Validator();

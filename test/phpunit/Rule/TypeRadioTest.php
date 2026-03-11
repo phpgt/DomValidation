@@ -11,7 +11,7 @@ use Gt\DomValidation\Validator;
 use PHPUnit\Framework\TestCase;
 
 class TypeRadioTest extends TestCase {
-	public function testRadio() {
+	public function testRadio():void {
 		$document = new HTMLDocument(Helper::HTML_RADIO);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -29,7 +29,7 @@ class TypeRadioTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testRadioMissingRequired() {
+	public function testRadioMissingRequired():void {
 		$document = new HTMLDocument(Helper::HTML_RADIO);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -48,7 +48,7 @@ class TypeRadioTest extends TestCase {
 		}
 	}
 
-	public function testRadioTextContent() {
+	public function testRadioTextContent():void {
 		$document = new HTMLDocument(Helper::HTML_RADIO);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -67,7 +67,7 @@ class TypeRadioTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testRadioTextContentInvalid() {
+	public function testRadioTextContentInvalid():void {
 		$document = new HTMLDocument(Helper::HTML_RADIO);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -88,7 +88,7 @@ class TypeRadioTest extends TestCase {
 		}
 	}
 
-	public function testIsValid_noForm() {
+	public function testIsValid_noForm():void {
 		$document = new HTMLDocument();
 		$element = $document->createElement("input");
 		$element->type = "radio";

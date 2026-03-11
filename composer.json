@@ -9,9 +9,9 @@
 	"type": "library",
 
 	"require": {
-		"php": ">=8.1",
+		"php": ">=8.2",
 		"phpgt/cssxpath": "1.*",
-		"phpgt/dom": "^4.1.6"
+		"phpgt/dom": "^4.1.8"
 	},
 
 	"require-dev": {
@@ -30,6 +30,18 @@
 		"psr-4": {
 			"Gt\\DomValidation\\Test\\": "./test/phpunit"
 		}
+	},
+	"scripts": {
+		"qa": [
+			"@qa:phpstan",
+			"@qa:phpunit",
+			"@qa:phpcs",
+			"@qa:phpmd"
+		],
+		"qa:phpstan": "phpstan analyse src --no-progress",
+		"qa:phpunit": "phpunit -c phpunit.xml",
+		"qa:phpcs": "phpcs --standard=phpcs.xml src",
+		"qa:phpmd": "phpmd src text phpmd.xml"
 	},
 
 	"funding": [

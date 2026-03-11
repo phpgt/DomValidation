@@ -8,7 +8,7 @@ use Gt\DomValidation\Validator;
 use PHPUnit\Framework\TestCase;
 
 class PatternTest extends TestCase {
-	public function testPattern() {
+	public function testPattern():void {
 		$document = new HTMLDocument(Helper::HTML_PATTERN_CREDIT_CARD);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -29,7 +29,7 @@ class PatternTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testPatternInvalid() {
+	public function testPatternInvalid():void {
 		$document = new HTMLDocument(Helper::HTML_PATTERN_CREDIT_CARD);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -53,7 +53,7 @@ class PatternTest extends TestCase {
 		}
 	}
 
-	public function testPatternWithMissingRequiredFields() {
+	public function testPatternWithMissingRequiredFields():void {
 		$document = new HTMLDocument(Helper::HTML_PATTERN_CREDIT_CARD_ALL_REQUIRED_FIELDS);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -73,7 +73,7 @@ class PatternTest extends TestCase {
 		}
 	}
 
-	public function testPatternTitleShown() {
+	public function testPatternTitleShown():void {
 		$document = new HTMLDocument(Helper::HTML_PATTERN_CREDIT_CARD_ALL_REQUIRED_FIELDS);
 		$form = $document->forms[0];
 		$validator = new Validator();

@@ -8,7 +8,7 @@ use Gt\DomValidation\Validator;
 use PHPUnit\Framework\TestCase;
 
 class MinLengthTest extends TestCase {
-	public function testMinLengthOK() {
+	public function testMinLengthOK():void {
 		$document = new HTMLDocument(Helper::HTML_USERNAME_PASSWORD);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -26,7 +26,7 @@ class MinLengthTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testMinLength() {
+	public function testMinLength():void {
 		$document = new HTMLDocument(Helper::HTML_USERNAME_PASSWORD);
 		$form = $document->forms[0];
 		$validator = new Validator();

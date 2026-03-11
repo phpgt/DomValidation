@@ -8,7 +8,7 @@ use Gt\DomValidation\Validator;
 use PHPUnit\Framework\TestCase;
 
 class TypeDateTest extends TestCase {
-	public function testTypeDate() {
+	public function testTypeDate():void {
 		$document = new HTMLDocument(Helper::HTML_USER_PROFILE);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -26,7 +26,7 @@ class TypeDateTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testTypeDateInvalid() {
+	public function testTypeDateInvalid():void {
 		$document = new HTMLDocument(Helper::HTML_USER_PROFILE);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -46,7 +46,7 @@ class TypeDateTest extends TestCase {
 		}
 	}
 
-	public function testTypeMonth() {
+	public function testTypeMonth():void {
 		$document = new HTMLDocument(Helper::HTML_DATE_TIME);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -64,7 +64,7 @@ class TypeDateTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testTypeMonthInvalid() {
+	public function testTypeMonthInvalid():void {
 		$document = new HTMLDocument(Helper::HTML_DATE_TIME);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -84,7 +84,7 @@ class TypeDateTest extends TestCase {
 		}
 	}
 
-	public function testTypeWeek() {
+	public function testTypeWeek():void {
 		$document = new HTMLDocument(Helper::HTML_DATE_TIME);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -102,7 +102,7 @@ class TypeDateTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testTypeWeekInvalid() {
+	public function testTypeWeekInvalid():void {
 		$document = new HTMLDocument(Helper::HTML_DATE_TIME);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -123,7 +123,7 @@ class TypeDateTest extends TestCase {
 		}
 	}
 
-	public function testTypeWeekOutOfBounds() {
+	public function testTypeWeekOutOfBounds():void {
 		$document = new HTMLDocument(Helper::HTML_DATE_TIME);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -143,7 +143,7 @@ class TypeDateTest extends TestCase {
 		}
 	}
 
-	public function testTypeDatetimeLocal() {
+	public function testTypeDatetimeLocal():void {
 		$document = new HTMLDocument(Helper::HTML_DATE_TIME);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -161,7 +161,7 @@ class TypeDateTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testTypeDatetimeLocalInvalid() {
+	public function testTypeDatetimeLocalInvalid():void {
 		$document = new HTMLDocument(Helper::HTML_DATE_TIME);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -181,7 +181,7 @@ class TypeDateTest extends TestCase {
 		}
 	}
 
-	public function testTypeTime() {
+	public function testTypeTime():void {
 		$document = new HTMLDocument(Helper::HTML_DATE_TIME);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -199,7 +199,7 @@ class TypeDateTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testTypeTimeInvalid() {
+	public function testTypeTimeInvalid():void {
 		$document = new HTMLDocument(Helper::HTML_DATE_TIME);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -219,7 +219,7 @@ class TypeDateTest extends TestCase {
 		}
 	}
 
-	public function testTypeAttributeMissing() {
+	public function testTypeAttributeMissing():void {
 		$document = new HTMLDocument("<form><input name='time' /></form>");
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -234,7 +234,7 @@ class TypeDateTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testTypeNotKnown() {
+	public function testTypeNotKnown():void {
 		$document = new HTMLDocument(Helper::HTML_DATE_TIME);
 		$form = $document->forms[0];
 		$timeInput = $form->querySelector("[type='time']");

@@ -10,7 +10,7 @@ use Gt\DomValidation\Validator;
 use PHPUnit\Framework\TestCase;
 
 class TypeNumberTest extends TestCase {
-	public function testNumberFieldEmpty() {
+	public function testNumberFieldEmpty():void {
 		$document = new HTMLDocument(Helper::HTML_PATTERN_CREDIT_CARD);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -32,7 +32,7 @@ class TypeNumberTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testNumberField() {
+	public function testNumberField():void {
 		$document = new HTMLDocument(Helper::HTML_PATTERN_CREDIT_CARD);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -54,7 +54,7 @@ class TypeNumberTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testNumberFieldFloat() {
+	public function testNumberFieldFloat():void {
 		$document = new HTMLDocument(Helper::HTML_PATTERN_CREDIT_CARD);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -77,7 +77,7 @@ class TypeNumberTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testNumberFieldNotANumber() {
+	public function testNumberFieldNotANumber():void {
 		$document = new HTMLDocument(Helper::HTML_PATTERN_CREDIT_CARD);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -101,7 +101,7 @@ class TypeNumberTest extends TestCase {
 		}
 	}
 
-	public function testStep() {
+	public function testStep():void {
 		$document = new HTMLDocument(Helper::HTML_STEP_NUMBERS);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -119,7 +119,7 @@ class TypeNumberTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testStepInvalid() {
+	public function testStepInvalid():void {
 		$document = new HTMLDocument(Helper::HTML_STEP_NUMBERS);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -139,7 +139,7 @@ class TypeNumberTest extends TestCase {
 		}
 	}
 
-	public function testStepNegative() {
+	public function testStepNegative():void {
 		$document = new HTMLDocument(Helper::HTML_STEP_NUMBERS);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -157,7 +157,7 @@ class TypeNumberTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testStepStartingFrom2() {
+	public function testStepStartingFrom2():void {
 		$document = new HTMLDocument(Helper::HTML_STEP_NUMBERS);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -175,7 +175,7 @@ class TypeNumberTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testStepStartingFrom2Invalid() {
+	public function testStepStartingFrom2Invalid():void {
 		$document = new HTMLDocument(Helper::HTML_STEP_NUMBERS);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -195,7 +195,7 @@ class TypeNumberTest extends TestCase {
 		}
 	}
 
-	public function testStepWithMinBust() {
+	public function testStepWithMinBust():void {
 		$document = new HTMLDocument(Helper::HTML_STEP_NUMBERS);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -215,7 +215,7 @@ class TypeNumberTest extends TestCase {
 		}
 	}
 
-	public function testStepWithMax() {
+	public function testStepWithMax():void {
 		$document = new HTMLDocument(Helper::HTML_STEP_NUMBERS);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -232,7 +232,7 @@ class TypeNumberTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testStepWithMaxBust() {
+	public function testStepWithMaxBust():void {
 		$document = new HTMLDocument(Helper::HTML_STEP_NUMBERS);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -252,7 +252,7 @@ class TypeNumberTest extends TestCase {
 		}
 	}
 
-	public function testStepWithDecimalStart() {
+	public function testStepWithDecimalStart():void {
 		$document = new HTMLDocument(Helper::HTML_STEP_NUMBERS);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -270,7 +270,7 @@ class TypeNumberTest extends TestCase {
 		self::assertNull($exception);
 	}
 
-	public function testStepWithDecimalStartBust() {
+	public function testStepWithDecimalStartBust():void {
 		$document = new HTMLDocument(Helper::HTML_STEP_NUMBERS);
 		$form = $document->forms[0];
 		$validator = new Validator();
@@ -289,12 +289,12 @@ class TypeNumberTest extends TestCase {
 		}
 	}
 
-	public function testGetHint_ok() {
+	public function testGetHint_ok():void {
 		$element = self::createMock(Element::class);
 		$element->method("getAttribute")
 			->willReturn(null);
 
 		$sut = new TypeNumber();
-		self::assertEmpty($sut->getHint($element, 1));
+		self::assertEmpty($sut->getHint($element, "1"));
 	}
 }

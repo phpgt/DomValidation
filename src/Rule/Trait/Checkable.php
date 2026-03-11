@@ -9,7 +9,7 @@ use Gt\Dom\Element;
  * of the same name within the form.
  */
 trait Checkable {
-	/** @param string|array $value */
+	/** @param string|array<string> $value */
 	private function checkedValueIsAvailable(Element $element, string|array $value):bool {
 		$availableValues = [];
 		$name = $element->name;

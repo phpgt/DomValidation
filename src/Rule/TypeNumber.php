@@ -95,15 +95,19 @@ class TypeNumber extends Rule {
 		?string $min,
 		?string $step,
 	):?string {
+		if(!$step) {
+			return null;
+		}
+		$step = (float)$step;
+
 		if(!is_null($min)) {
 			$min = (float)$min;
 
-			if(($value - $min) % $step !== 0) {
+			if(!$this->matchesStep($value - $min, $step)) {
 				return "Field value must be $min plus a multiple of $step";
 			}
 		}
-
-		if($step && $value % $step !== 0) {
+		elseif(!$this->matchesStep($value, $step)) {
 			return "Field value must be a multiple of $step";
 		}
 
@@ -135,10 +139,22 @@ class TypeNumber extends Rule {
 		$step = (float)$step;
 
 		if(is_null($min)) {
-			return $value % $step === 0;
+			return $this->matchesStep($value, $step);
 		}
 		$min = (float)$min;
 
-		return ($value - $min) % $step === 0;
+		return $this->matchesStep($value - $min, $step);
+	}
+
+	private function matchesStep(float $value, float $step):bool {
+		if($step === 0.0) {
+			return false;
+		}
+
+		$remainder = fmod($value, $step);
+		$epsilon = 0.0000001;
+
+		return abs($remainder) < $epsilon
+			|| abs(abs($remainder) - abs($step)) < $epsilon;
 	}
 }
