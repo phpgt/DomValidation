@@ -32,16 +32,16 @@
 		}
 	},
 	"scripts": {
-		"qa": [
-			"@qa:phpstan",
-			"@qa:phpunit",
-			"@qa:phpcs",
-			"@qa:phpmd"
-		],
-		"qa:phpstan": "phpstan analyse src --no-progress",
-		"qa:phpunit": "phpunit -c phpunit.xml",
-		"qa:phpcs": "phpcs --standard=phpcs.xml src",
-		"qa:phpmd": "phpmd src text phpmd.xml"
+		"phpunit": "vendor/bin/phpunit --configuration phpunit.xml",
+		"phpstan": "vendor/bin/phpstan analyse --memory-limit=512M --level 6 src",
+		"phpcs": "vendor/bin/phpcs src --standard=phpcs.xml",
+		"phpmd": "vendor/bin/phpmd src/ text phpmd.xml",
+		"test": [
+			"@phpunit",
+			"@phpstan",
+			"@phpcs",
+			"@phpmd"
+		]
 	},
 
 	"funding": [
