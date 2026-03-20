@@ -40,7 +40,7 @@ class SelectElementTest extends TestCase {
 			$errorArray = iterator_to_array($validator->getLastErrorList());
 			self::assertCount(1, $errorArray);
 			self::assertSame(
-				"This field is required",
+				"Please select an item in the list",
 				$errorArray["currency"]
 			);
 		}
@@ -142,7 +142,7 @@ class SelectElementTest extends TestCase {
 			$errorArray = iterator_to_array($validator->getLastErrorList());
 			self::assertCount(3, $errorArray);
 			self::assertSame(
-				"This field is required",
+				"Please select an item in the list",
 				$errorArray["currency"]
 			);
 			self::assertSame(

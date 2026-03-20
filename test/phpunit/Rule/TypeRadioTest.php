@@ -42,7 +42,7 @@ class TypeRadioTest extends TestCase {
 		catch(ValidationException) {
 			$errorArray = iterator_to_array($validator->getLastErrorList());
 			self::assertSame(
-				"This field is required",
+				"Please select one of these options",
 				$errorArray["currency"],
 			);
 		}
