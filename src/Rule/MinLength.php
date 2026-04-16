@@ -2,6 +2,7 @@
 namespace Gt\DomValidation\Rule;
 
 use Gt\Dom\Element;
+use Gt\DomValidation\ValidityState\TooShortException;
 
 class MinLength extends Rule {
 	protected array $attributes = [
@@ -11,6 +12,10 @@ class MinLength extends Rule {
 	public function isValid(Element $element, string|array $value, array $inputKvp):bool {
 		$minLength = $element->getAttribute("minlength");
 		return strlen($value) >= $minLength;
+	}
+
+	public function getExceptionClass(Element $element, string|array $value, array $inputKvp):string {
+		return TooShortException::class;
 	}
 
 	public function getHint(Element $element, string $value):string {

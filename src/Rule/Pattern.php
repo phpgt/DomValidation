@@ -2,6 +2,7 @@
 namespace Gt\DomValidation\Rule;
 
 use Gt\Dom\Element;
+use Gt\DomValidation\ValidityState\PatternMismatchException;
 
 class Pattern extends Rule {
 	protected array $attributes = [
@@ -11,6 +12,10 @@ class Pattern extends Rule {
 	public function isValid(Element $element, string|array $value, array $inputKvp):bool {
 		$pattern = "/" . $element->getAttribute("pattern") . "/u";
 		return (bool)preg_match($pattern, $value);
+	}
+
+	public function getExceptionClass(Element $element, string|array $value, array $inputKvp):string {
+		return PatternMismatchException::class;
 	}
 
 	public function getHint(Element $element, string $value):string {

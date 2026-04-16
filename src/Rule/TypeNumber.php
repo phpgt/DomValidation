@@ -2,6 +2,10 @@
 namespace Gt\DomValidation\Rule;
 
 use Gt\Dom\Element;
+use Gt\DomValidation\ValidityState\BadInputException;
+use Gt\DomValidation\ValidityState\RangeOverflowException;
+use Gt\DomValidation\ValidityState\RangeUnderflowException;
+use Gt\DomValidation\ValidityState\StepMismatchException;
 
 class TypeNumber extends Rule {
 	/** @var string[] */
@@ -43,6 +47,29 @@ class TypeNumber extends Rule {
 		}
 
 		return true;
+	}
+
+	public function getExceptionClass(Element $element, string|array $value, array $inputKvp):string {
+		if(!is_numeric($value)) {
+			return BadInputException::class;
+		}
+
+		$value = (float)$value;
+		$min = $element->getAttribute("min");
+		$max = $element->getAttribute("max");
+		$step = $element->getAttribute("step");
+
+		if(false === $this->isValidMin($min, $value)) {
+			return RangeUnderflowException::class;
+		}
+		if(false === $this->isValidMax($max, $value)) {
+			return RangeOverflowException::class;
+		}
+		if(false === $this->isValidStep($min, $step, $value)) {
+			return StepMismatchException::class;
+		}
+
+		return BadInputException::class;
 	}
 
 	public function getHint(Element $element, string $value):string {
