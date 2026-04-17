@@ -3,6 +3,7 @@ namespace Gt\DomValidation\Rule;
 
 use DateTime;
 use Gt\Dom\Element;
+use Gt\DomValidation\ValidityState\BadInputException;
 
 class TypeDate extends Rule {
 // ISO-8601 derived date formats:
@@ -31,6 +32,10 @@ class TypeDate extends Rule {
 		);
 
 		return !is_null($dateTime);
+	}
+
+	public function getExceptionClass(Element $element, string|array $value, array $inputKvp):string {
+		return BadInputException::class;
 	}
 
 	public function getHint(Element $element, string $value):string {

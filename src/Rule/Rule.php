@@ -2,6 +2,7 @@
 namespace Gt\DomValidation\Rule;
 
 use Gt\Dom\Element;
+use Gt\DomValidation\ValidityState\ValidityStateException;
 
 abstract class Rule {
 	/**
@@ -28,6 +29,19 @@ abstract class Rule {
 		string|array $value,
 		array $inputKvp,
 	):bool;
+
+	/**
+	 * @param string|array<string> $value Either a single string or multiple string values
+	 * @param array<string, string|array<string>> $inputKvp
+	 * @return class-string<\Gt\DomValidation\ValidationException>
+	 */
+	public function getExceptionClass(
+		Element $element,
+		string|array $value,
+		array $inputKvp,
+	):string {
+		return ValidityStateException::class;
+	}
 
 	abstract public function getHint(Element $element, string $value):string;
 }

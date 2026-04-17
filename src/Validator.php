@@ -3,6 +3,7 @@ namespace Gt\DomValidation;
 
 use Gt\Dom\Element;
 use Gt\DomValidation\Rule\Rule;
+use Gt\DomValidation\ValidityState\ValidityStateException;
 use Stringable;
 use Traversable;
 
@@ -42,7 +43,8 @@ class Validator {
 		if($errorCount > 0) {
 			$collectiveNoun = $errorCount === 1 ? "is" : "are";
 			$fieldWord = $errorCount === 1 ? "field" : "fields";
-			throw new ValidationException(
+			$exceptionClass = $this->getThrownExceptionClass();
+			throw new $exceptionClass(
 				"There $collectiveNoun $errorCount invalid $fieldWord"
 			);
 		}
@@ -68,15 +70,27 @@ class Validator {
 			$name = strtok($name, "[]");
 			$value = $this->normaliseInputValue($inputKvp[$name] ?? "");
 
-			foreach ($ruleArray as $rule) {
-				if (!$rule->isValid($element, $value, $inputKvp)) {
-					$this->errorList->add(
-						$element,
-						$rule->getHint($element, $this->normalise($value))
-					);
+				foreach ($ruleArray as $rule) {
+					if (!$rule->isValid($element, $value, $inputKvp)) {
+						$this->errorList->add(
+							$element,
+							$rule->getHint($element, $this->normalise($value)),
+							$rule->getExceptionClass($element, $value, $inputKvp),
+						);
+					}
 				}
 			}
+	}
+
+	/** @return class-string<ValidationException> */
+	private function getThrownExceptionClass():string {
+		$exceptionClassList = $this->errorList->getExceptionClassList();
+
+		if(count($exceptionClassList) === 1) {
+			return $exceptionClassList[0];
 		}
+
+		return ValidityStateException::class;
 	}
 
 	/** @return array<string, string> */
