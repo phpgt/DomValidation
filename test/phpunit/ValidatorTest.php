@@ -2,9 +2,9 @@
 namespace GT\DomValidation\Test;
 
 use ArrayIterator;
-use Gt\Dom\Element;
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\HTMLElement;
+use GT\Dom\Element;
+use GT\Dom\HTMLDocument;
+use GT\Dom\HTMLElement;
 use GT\DomValidation\DefaultValidationRules;
 use GT\DomValidation\Rule\Rule;
 use GT\DomValidation\Test\Helper\Helper;

@@ -2,7 +2,7 @@
 namespace GT\DomValidation\Rule;
 
 use DateTime;
-use Gt\Dom\Element;
+use GT\Dom\Element;
 use GT\DomValidation\ValidityState\BadInputException;
 
 class TypeDate extends Rule {

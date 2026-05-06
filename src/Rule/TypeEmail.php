@@ -1,7 +1,7 @@
 <?php
 namespace GT\DomValidation\Rule;
 
-use Gt\Dom\Element;
+use GT\Dom\Element;
 use GT\DomValidation\ValidityState\TypeMismatchException;
 
 class TypeEmail extends Rule {

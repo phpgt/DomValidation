@@ -1,9 +1,9 @@
 <?php
 namespace GT\DomValidation\Test\Rule;
 
-use Gt\Dom\Element;
-use Gt\Dom\ElementType;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\Element;
+use GT\Dom\ElementType;
+use GT\Dom\HTMLDocument;
 use GT\DomValidation\Rule\TypeCheckbox;
 use GT\DomValidation\Rule\TypeRadio;
 use GT\DomValidation\Test\Helper\Helper;

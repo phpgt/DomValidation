@@ -1,8 +1,8 @@
 <?php
 namespace GT\DomValidation\Rule;
 
-use Gt\Dom\Element;
-use Gt\Dom\ElementType;
+use GT\Dom\Element;
+use GT\Dom\ElementType;
 use GT\DomValidation\ValidityState\ValueMissingException;
 
 class Required extends Rule {

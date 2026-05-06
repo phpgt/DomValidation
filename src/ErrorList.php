@@ -2,7 +2,7 @@
 namespace GT\DomValidation;
 
 use Countable;
-use Gt\Dom\Element;
+use GT\Dom\Element;
 use Iterator;
 use GT\DomValidation\ValidityState\ValidityStateException;
 

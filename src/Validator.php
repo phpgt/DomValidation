@@ -1,7 +1,7 @@
 <?php
 namespace GT\DomValidation;
 
-use Gt\Dom\Element;
+use GT\Dom\Element;
 use GT\DomValidation\Rule\Rule;
 use GT\DomValidation\ValidityState\ValidityStateException;
 use Stringable;

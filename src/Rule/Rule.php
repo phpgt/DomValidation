@@ -1,9 +1,10 @@
 <?php
 namespace GT\DomValidation\Rule;
 
-use Gt\Dom\Element;
+use GT\Dom\Element;
 use GT\DomValidation\ValidityState\ValidityStateException;
 
+/** @SuppressWarnings(PHPMD.NumberOfChildren) */
 abstract class Rule {
 	/**
 	 * @var string[] Array of attribute strings that control this rule.

@@ -1,8 +1,8 @@
 <?php
 namespace GT\DomValidation\Test\Rule;
 
-use Gt\Dom\Element;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\Element;
+use GT\Dom\HTMLDocument;
 use GT\DomValidation\Rule\TypeNumber;
 use GT\DomValidation\Test\Helper\Helper;
 use GT\DomValidation\ValidationException;
