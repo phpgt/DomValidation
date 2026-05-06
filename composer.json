@@ -11,7 +11,7 @@
 	"require": {
 		"php": ">=8.2",
 		"phpgt/cssxpath": "1.*",
-		"phpgt/dom": "^4.1.8"
+		"phpgt/dom": "^4.2"
 	},
 
 	"require-dev": {
