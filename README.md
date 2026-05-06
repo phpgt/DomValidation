@@ -20,7 +20,7 @@ This repository performs W3C form validation for projects that have a [server-si
 	<img src="https://badge.status.php.gt/domvalidation-version.svg" alt="Current version" />
 </a>
 <a href="http://www.php.gt/domvalidation" target="_blank">
-	<img src="https://badge.status.php.gt/domvalidation-docs.svg" alt="PHP.Gt/DomValidation documentation" />
+	<img src="https://badge.status.php.gt/domvalidation-docs.svg" alt="PHP.GT/DomValidation documentation" />
 </a>
 
 ## Example usage
@@ -62,9 +62,9 @@ Validation rules present in the above HTML form:
 + `nation` input must be one of the three enumerations present in the `<select>` element.
 
 ```php
-use Gt\Dom\HTMLDocument;
-use Gt\DomValidation\Validator;
-use Gt\DomValidation\ValidationException;
+use GT\Dom\HTMLDocument;
+use GT\DomValidation\Validator;
+use GT\DomValidation\ValidationException;
 
 // Assume this function is triggered when POST data arrives.
 function handleSubmit($inputData) {

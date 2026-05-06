@@ -1,11 +1,11 @@
 <?php
-namespace Gt\DomValidation\Rule;
+namespace GT\DomValidation\Rule;
 
 use Gt\Dom\Element;
-use Gt\DomValidation\ValidityState\BadInputException;
-use Gt\DomValidation\ValidityState\RangeOverflowException;
-use Gt\DomValidation\ValidityState\RangeUnderflowException;
-use Gt\DomValidation\ValidityState\StepMismatchException;
+use GT\DomValidation\ValidityState\BadInputException;
+use GT\DomValidation\ValidityState\RangeOverflowException;
+use GT\DomValidation\ValidityState\RangeUnderflowException;
+use GT\DomValidation\ValidityState\StepMismatchException;
 
 class TypeNumber extends Rule {
 	/** @var string[] */

@@ -1,9 +1,9 @@
 <?php
-namespace Gt\DomValidation\Rule;
+namespace GT\DomValidation\Rule;
 
 use DateTime;
 use Gt\Dom\Element;
-use Gt\DomValidation\ValidityState\BadInputException;
+use GT\DomValidation\ValidityState\BadInputException;
 
 class TypeDate extends Rule {
 // ISO-8601 derived date formats:

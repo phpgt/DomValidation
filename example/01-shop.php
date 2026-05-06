@@ -5,9 +5,9 @@
  * then visit http://localhost:8080/01-shop.php in your web browser.
  */
 
-use Gt\Dom\HTMLDocument;
-use Gt\DomValidation\ValidationException;
-use Gt\DomValidation\Validator;
+use GT\Dom\HTMLDocument;
+use GT\DomValidation\ValidationException;
+use GT\DomValidation\Validator;
 
 require __DIR__ . "/../vendor/autoload.php";
 

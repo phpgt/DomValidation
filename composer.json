@@ -23,12 +23,13 @@
 
 	"autoload": {
 		"psr-4": {
+			"GT\\DomValidation\\": "./src/",
 			"Gt\\DomValidation\\": "./src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Gt\\DomValidation\\Test\\": "./test/phpunit"
+			"GT\\DomValidation\\Test\\": "./test/phpunit"
 		}
 	},
 	"scripts": {

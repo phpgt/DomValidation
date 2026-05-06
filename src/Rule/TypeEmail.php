@@ -1,8 +1,8 @@
 <?php
-namespace Gt\DomValidation\Rule;
+namespace GT\DomValidation\Rule;
 
 use Gt\Dom\Element;
-use Gt\DomValidation\ValidityState\TypeMismatchException;
+use GT\DomValidation\ValidityState\TypeMismatchException;
 
 class TypeEmail extends Rule {
 	protected array $attributes = [

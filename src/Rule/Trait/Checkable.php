@@ -1,5 +1,5 @@
 <?php
-namespace Gt\DomValidation\Rule\Trait;
+namespace GT\DomValidation\Rule\Trait;
 
 use Gt\Dom\Element;
 

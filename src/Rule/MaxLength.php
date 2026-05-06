@@ -1,8 +1,8 @@
 <?php
-namespace Gt\DomValidation\Rule;
+namespace GT\DomValidation\Rule;
 
 use Gt\Dom\Element;
-use Gt\DomValidation\ValidityState\TooLongException;
+use GT\DomValidation\ValidityState\TooLongException;
 
 class MaxLength extends Rule {
 	protected array $attributes = [

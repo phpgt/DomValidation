@@ -1,7 +1,7 @@
 <?php
-namespace Gt\DomValidation;
+namespace GT\DomValidation;
 
-use Gt\DomValidation\Rule\Rule;
+use GT\DomValidation\Rule\Rule;
 
 abstract class ValidationRules {
 	/** @var Rule[] */

@@ -1,5 +1,5 @@
 <?php
-namespace Gt\DomValidation\Test\Helper;
+namespace GT\DomValidation\Test\Helper;
 
 class Helper {
 	const HTML_USERNAME_PASSWORD = <<<HTML

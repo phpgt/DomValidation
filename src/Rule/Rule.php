@@ -1,8 +1,8 @@
 <?php
-namespace Gt\DomValidation\Rule;
+namespace GT\DomValidation\Rule;
 
 use Gt\Dom\Element;
-use Gt\DomValidation\ValidityState\ValidityStateException;
+use GT\DomValidation\ValidityState\ValidityStateException;
 
 abstract class Rule {
 	/**
@@ -33,7 +33,7 @@ abstract class Rule {
 	/**
 	 * @param string|array<string> $value Either a single string or multiple string values
 	 * @param array<string, string|array<string>> $inputKvp
-	 * @return class-string<\Gt\DomValidation\ValidationException>
+	 * @return class-string<\GT\DomValidation\ValidationException>
 	 */
 	public function getExceptionClass(
 		Element $element,

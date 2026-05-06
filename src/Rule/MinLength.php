@@ -1,8 +1,8 @@
 <?php
-namespace Gt\DomValidation\Rule;
+namespace GT\DomValidation\Rule;
 
 use Gt\Dom\Element;
-use Gt\DomValidation\ValidityState\TooShortException;
+use GT\DomValidation\ValidityState\TooShortException;
 
 class MinLength extends Rule {
 	protected array $attributes = [

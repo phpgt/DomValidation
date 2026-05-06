@@ -1,10 +1,10 @@
 <?php
-namespace Gt\DomValidation\Test\Rule;
+namespace GT\DomValidation\Test\Rule;
 
 use Gt\Dom\HTMLDocument;
-use Gt\DomValidation\Test\Helper\Helper;
-use Gt\DomValidation\ValidationException;
-use Gt\DomValidation\Validator;
+use GT\DomValidation\Test\Helper\Helper;
+use GT\DomValidation\ValidationException;
+use GT\DomValidation\Validator;
 use PHPUnit\Framework\TestCase;
 
 class EmailTypeTest extends TestCase {
