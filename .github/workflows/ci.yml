@@ -7,7 +7,6 @@ on:
 permissions:
   contents: read
   actions: read
-  id-token: none
 
 jobs:
   composer:
@@ -95,9 +94,10 @@ jobs:
         run: cat "_coverage/coverage.txt"
 
       - name: Upload to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          slug: ${{ github.repository }}
 
   phpstan:
     runs-on: ubuntu-latest
@@ -169,9 +169,3 @@ jobs:
           php_version: ${{ matrix.php }}
           path: src/
           standard: phpcs.xml
-
-  remove_old_artifacts:
-    runs-on: ubuntu-latest
-
-    permissions:
-      actions: write
