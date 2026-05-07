@@ -122,7 +122,7 @@ class TypeNumber extends Rule {
 		?string $min,
 		?string $step,
 	):?string {
-		if(!$step) {
+		if($step === 0 || $step === "") {
 			return null;
 		}
 		$step = (float)$step;
@@ -160,7 +160,7 @@ class TypeNumber extends Rule {
 	}
 
 	private function isValidStep(?string $min, ?string $step, float $value):bool {
-		if(!$step) {
+		if($step === 0 || $step === "") {
 			return true;
 		}
 		$step = (float)$step;
