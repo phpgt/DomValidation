@@ -4,6 +4,8 @@ namespace GT\DomValidation\Test\Rule;
 use GT\Dom\Element;
 use GT\Dom\HTMLDocument;
 use GT\DomValidation\Rule\TypeNumber;
+use GT\DomValidation\ValidityState\BadInputException;
+use GT\DomValidation\ValidityState\StepMismatchException;
 use GT\DomValidation\Test\Helper\Helper;
 use GT\DomValidation\ValidationException;
 use GT\DomValidation\Validator;
@@ -296,5 +298,53 @@ class TypeNumberTest extends TestCase {
 
 		$sut = new TypeNumber();
 		self::assertEmpty($sut->getHint($element, "1"));
+	}
+
+	public function testGetHint_okWithStepAndMin():void {
+		$document = new HTMLDocument(Helper::HTML_STEP_EDGE_CASES);
+		$element = $document->querySelector("[name='step-aligned']");
+
+		$sut = new TypeNumber();
+		self::assertSame("", $sut->getHint($element, "17.9"));
+	}
+
+	public function testGetExceptionClass_validNumericFieldFallsBackToBadInput():void {
+		$document = new HTMLDocument(Helper::HTML_STEP_EDGE_CASES);
+		$element = $document->querySelector("[name='plain-number']");
+
+		$sut = new TypeNumber();
+		self::assertSame(
+			BadInputException::class,
+			$sut->getExceptionClass($element, "12", [])
+		);
+	}
+
+	public function testStepZeroIsInvalid():void {
+		$document = new HTMLDocument(Helper::HTML_STEP_EDGE_CASES);
+		$form = $document->forms[0];
+		$validator = new Validator();
+
+		try {
+			$validator->validate($form, [
+				"step-zero" => "5",
+			]);
+			self::fail("Expected validation to fail for a field with step=0");
+		}
+		catch(ValidationException $exception) {
+			self::assertInstanceOf(StepMismatchException::class, $exception);
+
+			$errorArray = iterator_to_array($validator->getLastErrorList());
+			self::assertSame(
+				"Field value must be a multiple of 0",
+				$errorArray["step-zero"]
+			);
+		}
+	}
+
+	public function testMatchesStepRejectsZeroStep():void {
+		$sut = new TypeNumber();
+		$method = new \ReflectionMethod($sut, "matchesStep");
+
+		self::assertFalse($method->invoke($sut, 5.0, 0.0));
 	}
 }

@@ -93,6 +93,24 @@ HTML;
 </form>
 HTML;
 
+	const HTML_STEP_EDGE_CASES = <<<HTML
+<!doctype html>
+<form method="post">
+	<label>
+		<span>Step of zero</span>
+		<input name="step-zero" type="number" step="0" />
+	</label>
+	<label>
+		<span>Aligned step with min</span>
+		<input name="step-aligned" type="number" min="3.5" step="7.2" />
+	</label>
+	<label>
+		<span>Plain numeric value</span>
+		<input name="plain-number" type="number" />
+	</label>
+</form>
+HTML;
+
 	const HTML_USER_PROFILE = <<<HTML
 <!doctype html>
 <form method="post">
