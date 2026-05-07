@@ -1,17 +1,17 @@
 <?php
-namespace Gt\DomValidation;
+namespace GT\DomValidation;
 
-use Gt\DomValidation\Rule\MaxLength;
-use Gt\DomValidation\Rule\MinLength;
-use Gt\DomValidation\Rule\Pattern;
-use Gt\DomValidation\Rule\TypeCheckbox;
-use Gt\DomValidation\Rule\TypeRadio;
-use Gt\DomValidation\Rule\Required;
-use Gt\DomValidation\Rule\SelectElement;
-use Gt\DomValidation\Rule\TypeDate;
-use Gt\DomValidation\Rule\TypeEmail;
-use Gt\DomValidation\Rule\TypeNumber;
-use Gt\DomValidation\Rule\TypeUrl;
+use GT\DomValidation\Rule\MaxLength;
+use GT\DomValidation\Rule\MinLength;
+use GT\DomValidation\Rule\Pattern;
+use GT\DomValidation\Rule\TypeCheckbox;
+use GT\DomValidation\Rule\TypeRadio;
+use GT\DomValidation\Rule\Required;
+use GT\DomValidation\Rule\SelectElement;
+use GT\DomValidation\Rule\TypeDate;
+use GT\DomValidation\Rule\TypeEmail;
+use GT\DomValidation\Rule\TypeNumber;
+use GT\DomValidation\Rule\TypeUrl;
 
 class DefaultValidationRules extends ValidationRules {
 	protected function setRuleList():void {

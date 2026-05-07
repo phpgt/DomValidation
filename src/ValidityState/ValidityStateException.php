@@ -1,6 +1,7 @@
 <?php
-namespace Gt\DomValidation\ValidityState;
+namespace GT\DomValidation\ValidityState;
 
-use Gt\DomValidation\ValidationException;
+use GT\DomValidation\ValidationException;
 
+/** @SuppressWarnings(PHPMD.NumberOfChildren) */
 class ValidityStateException extends ValidationException {}

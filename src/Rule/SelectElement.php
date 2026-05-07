@@ -1,8 +1,8 @@
 <?php
-namespace Gt\DomValidation\Rule;
+namespace GT\DomValidation\Rule;
 
-use Gt\Dom\Element;
-use Gt\Dom\ElementType;
+use GT\Dom\Element;
+use GT\Dom\ElementType;
 
 class SelectElement extends Rule {
 	public function isValid(Element $element, string|array $value, array $inputKvp):bool {

@@ -1,11 +1,11 @@
 <?php
-namespace Gt\DomValidation\Rule;
+namespace GT\DomValidation\Rule;
 
-use Gt\Dom\Element;
-use Gt\DomValidation\ValidityState\BadInputException;
-use Gt\DomValidation\ValidityState\RangeOverflowException;
-use Gt\DomValidation\ValidityState\RangeUnderflowException;
-use Gt\DomValidation\ValidityState\StepMismatchException;
+use GT\Dom\Element;
+use GT\DomValidation\ValidityState\BadInputException;
+use GT\DomValidation\ValidityState\RangeOverflowException;
+use GT\DomValidation\ValidityState\RangeUnderflowException;
+use GT\DomValidation\ValidityState\StepMismatchException;
 
 class TypeNumber extends Rule {
 	/** @var string[] */
@@ -122,7 +122,7 @@ class TypeNumber extends Rule {
 		?string $min,
 		?string $step,
 	):?string {
-		if(!$step) {
+		if(is_null($step) || $step === "") {
 			return null;
 		}
 		$step = (float)$step;
@@ -160,7 +160,7 @@ class TypeNumber extends Rule {
 	}
 
 	private function isValidStep(?string $min, ?string $step, float $value):bool {
-		if(!$step) {
+		if(is_null($step) || $step === "") {
 			return true;
 		}
 		$step = (float)$step;

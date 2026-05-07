@@ -1,9 +1,9 @@
 <?php
-namespace Gt\DomValidation\Rule;
+namespace GT\DomValidation\Rule;
 
-use Gt\Dom\Element;
-use Gt\Dom\ElementType;
-use Gt\DomValidation\ValidityState\ValueMissingException;
+use GT\Dom\Element;
+use GT\Dom\ElementType;
+use GT\DomValidation\ValidityState\ValueMissingException;
 
 class Required extends Rule {
 	protected array $attributes = [

@@ -1,9 +1,9 @@
 <?php
-namespace Gt\DomValidation;
+namespace GT\DomValidation;
 
-use Gt\Dom\Element;
-use Gt\DomValidation\Rule\Rule;
-use Gt\DomValidation\ValidityState\ValidityStateException;
+use GT\Dom\Element;
+use GT\DomValidation\Rule\Rule;
+use GT\DomValidation\ValidityState\ValidityStateException;
 use Stringable;
 use Traversable;
 

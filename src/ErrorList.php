@@ -1,10 +1,10 @@
 <?php
-namespace Gt\DomValidation;
+namespace GT\DomValidation;
 
 use Countable;
-use Gt\Dom\Element;
+use GT\Dom\Element;
 use Iterator;
-use Gt\DomValidation\ValidityState\ValidityStateException;
+use GT\DomValidation\ValidityState\ValidityStateException;
 
 /** @implements Iterator<string, string> */
 class ErrorList implements Countable, Iterator {

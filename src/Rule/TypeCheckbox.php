@@ -1,9 +1,9 @@
 <?php
-namespace Gt\DomValidation\Rule;
+namespace GT\DomValidation\Rule;
 
-use Gt\Dom\Element;
-use Gt\Dom\ElementType;
-use Gt\DomValidation\Rule\Trait\Checkable;
+use GT\Dom\Element;
+use GT\Dom\ElementType;
+use GT\DomValidation\Rule\Trait\Checkable;
 
 class TypeCheckbox extends Rule {
 	use Checkable;

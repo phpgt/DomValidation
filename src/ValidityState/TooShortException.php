@@ -1,4 +1,4 @@
 <?php
-namespace Gt\DomValidation\ValidityState;
+namespace GT\DomValidation\ValidityState;
 
 class TooShortException extends ValidityStateException {}

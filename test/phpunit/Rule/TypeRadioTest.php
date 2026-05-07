@@ -1,13 +1,13 @@
 <?php
-namespace Gt\DomValidation\Test\Rule;
+namespace GT\DomValidation\Test\Rule;
 
-use Gt\Dom\Element;
-use Gt\Dom\ElementType;
-use Gt\Dom\HTMLDocument;
-use Gt\DomValidation\Rule\TypeRadio;
-use Gt\DomValidation\Test\Helper\Helper;
-use Gt\DomValidation\ValidationException;
-use Gt\DomValidation\Validator;
+use GT\Dom\Element;
+use GT\Dom\ElementType;
+use GT\Dom\HTMLDocument;
+use GT\DomValidation\Rule\TypeRadio;
+use GT\DomValidation\Test\Helper\Helper;
+use GT\DomValidation\ValidationException;
+use GT\DomValidation\Validator;
 use PHPUnit\Framework\TestCase;
 
 class TypeRadioTest extends TestCase {

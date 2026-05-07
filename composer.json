@@ -11,7 +11,7 @@
 	"require": {
 		"php": ">=8.2",
 		"phpgt/cssxpath": "1.*",
-		"phpgt/dom": "^4.1.8"
+		"phpgt/dom": "^4.2"
 	},
 
 	"require-dev": {
@@ -23,12 +23,13 @@
 
 	"autoload": {
 		"psr-4": {
+			"GT\\DomValidation\\": "./src/",
 			"Gt\\DomValidation\\": "./src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Gt\\DomValidation\\Test\\": "./test/phpunit"
+			"GT\\DomValidation\\Test\\": "./test/phpunit"
 		}
 	},
 	"scripts": {

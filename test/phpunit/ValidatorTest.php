@@ -1,15 +1,15 @@
 <?php
-namespace Gt\DomValidation\Test;
+namespace GT\DomValidation\Test;
 
 use ArrayIterator;
-use Gt\Dom\Element;
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\HTMLElement;
-use Gt\DomValidation\DefaultValidationRules;
-use Gt\DomValidation\Rule\Rule;
-use Gt\DomValidation\Test\Helper\Helper;
-use Gt\DomValidation\ValidationException;
-use Gt\DomValidation\Validator;
+use GT\Dom\Element;
+use GT\Dom\HTMLDocument;
+use GT\Dom\HTMLElement;
+use GT\DomValidation\DefaultValidationRules;
+use GT\DomValidation\Rule\Rule;
+use GT\DomValidation\Test\Helper\Helper;
+use GT\DomValidation\ValidationException;
+use GT\DomValidation\Validator;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use stdClass;

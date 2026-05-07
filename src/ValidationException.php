@@ -1,5 +1,5 @@
 <?php
-namespace Gt\DomValidation;
+namespace GT\DomValidation;
 
 use RuntimeException;
 

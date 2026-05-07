@@ -1,5 +1,5 @@
 <?php
-namespace Gt\DomValidation\Test\Helper;
+namespace GT\DomValidation\Test\Helper;
 
 class Helper {
 	const HTML_USERNAME_PASSWORD = <<<HTML
@@ -89,6 +89,24 @@ HTML;
 	<label>
 		<span>Step of 7.2, starting from 3.5 (max 3 steps up)</span>
 		<input name="step4" type="range" step="7.2" min="3.5" max="25.1" />
+	</label>
+</form>
+HTML;
+
+	const HTML_STEP_EDGE_CASES = <<<HTML
+<!doctype html>
+<form method="post">
+	<label>
+		<span>Step of zero</span>
+		<input name="step-zero" type="number" step="0" />
+	</label>
+	<label>
+		<span>Aligned step with min</span>
+		<input name="step-aligned" type="number" min="3.5" step="7.2" />
+	</label>
+	<label>
+		<span>Plain numeric value</span>
+		<input name="plain-number" type="number" />
 	</label>
 </form>
 HTML;

@@ -1,8 +1,8 @@
 <?php
-namespace Gt\DomValidation\Rule;
+namespace GT\DomValidation\Rule;
 
-use Gt\Dom\Element;
-use Gt\DomValidation\ValidityState\PatternMismatchException;
+use GT\Dom\Element;
+use GT\DomValidation\ValidityState\PatternMismatchException;
 
 class Pattern extends Rule {
 	protected array $attributes = [

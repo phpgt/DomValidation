@@ -1,7 +1,7 @@
 <?php
-namespace Gt\DomValidation\Rule\Trait;
+namespace GT\DomValidation\Rule\Trait;
 
-use Gt\Dom\Element;
+use GT\Dom\Element;
 
 /**
  * Elements that can have the `checked` attribute (radio buttons and checkboxes)

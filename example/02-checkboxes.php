@@ -9,9 +9,9 @@
  * in the source HTML.
  */
 
-use Gt\Dom\HTMLDocument;
-use Gt\DomValidation\ValidationException;
-use Gt\DomValidation\Validator;
+use GT\Dom\HTMLDocument;
+use GT\DomValidation\ValidationException;
+use GT\DomValidation\Validator;
 
 require __DIR__ . "/../vendor/autoload.php";
 
