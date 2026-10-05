@@ -10,7 +10,7 @@
 
 	"require": {
 		"php": ">=8.2",
-		"phpgt/cssxpath": "1.*",
+		"phpgt/cssxpath": "^1.6",
 		"phpgt/dom": "^4.2"
 	},
 
@@ -50,5 +50,10 @@
 			"type": "github",
 			"url": "https://github.com/sponsors/PhpGt"
 		}
-	]
+	],
+	"config": {
+		"platform": {
+			"php": "8.2.0"
+		}
+	}
 }
