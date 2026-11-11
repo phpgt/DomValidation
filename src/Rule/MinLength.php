@@ -10,8 +10,18 @@ class MinLength extends Rule {
 	];
 
 	public function isValid(Element $element, string|array $value, array $inputKvp):bool {
+		if(!is_string($value) || !mb_check_encoding($value, "UTF-8")) {
+			return false;
+		}
+
+		if($value === "") {
+			return true;
+		}
+
+		// HTML measures text length in UTF-16 code units, not UTF-8 bytes.
+		$length = strlen(mb_convert_encoding($value, "UTF-16LE", "UTF-8")) / 2;
 		$minLength = $element->getAttribute("minlength");
-		return strlen($value) >= $minLength;
+		return $length >= $minLength;
 	}
 
 	public function getExceptionClass(Element $element, string|array $value, array $inputKvp):string {
