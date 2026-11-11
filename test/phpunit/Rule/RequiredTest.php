@@ -43,7 +43,7 @@ class RequiredTest extends TestCase {
 		}
 		catch(ValidationException $exception) {
 			foreach($validator->getLastErrorList() as $error) {
-				self::assertSame("This field is required; This field's value must contain at least 12 characters", $error);
+				self::assertSame("This field is required", $error);
 			}
 		}
 	}
@@ -61,7 +61,7 @@ class RequiredTest extends TestCase {
 		}
 		catch(ValidationException $exception) {
 			foreach($validator->getLastErrorList() as $name => $error) {
-				self::assertSame("This field is required; This field's value must contain at least 12 characters", $error);
+				self::assertSame("This field is required", $error);
 				self::assertSame("password", $name);
 			}
 		}
@@ -84,5 +84,14 @@ class RequiredTest extends TestCase {
 			$errorArray = iterator_to_array($validator->getLastErrorList());
 			self::assertCount(3, $errorArray);
 		}
+	}
+
+	public function testIsValid_zeroIsNotMissing():void {
+		$document = new HTMLDocument('<form><input name="text" required></form>');
+		$element = $document->querySelector("input");
+		$sut = new \GT\DomValidation\Rule\Required();
+
+		self::assertTrue($sut->isValid($element, "0", []));
+		self::assertFalse($sut->isValid($element, "", []));
 	}
 }

@@ -44,4 +44,15 @@ class MaxLengthTest extends TestCase {
 			);
 		}
 	}
+
+	public function testIsValid_utf16Length():void {
+		$document = new HTMLDocument('<form><input name="text" maxlength="2"></form>');
+		$element = $document->querySelector("input");
+		$sut = new \GT\DomValidation\Rule\MaxLength();
+
+		self::assertTrue($sut->isValid($element, "馬馬", []));
+		self::assertTrue($sut->isValid($element, "😀", []));
+		self::assertFalse($sut->isValid($element, "😀a", []));
+		self::assertTrue($sut->isValid($element, "", []));
+	}
 }

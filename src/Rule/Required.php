@@ -11,7 +11,7 @@ class Required extends Rule {
 	];
 
 	public function isValid(Element $element, string|array $value, array $inputKvp):bool {
-		return !empty($value);
+		return $value !== "" && $value !== [];
 	}
 
 	public function getExceptionClass(Element $element, string|array $value, array $inputKvp):string {
