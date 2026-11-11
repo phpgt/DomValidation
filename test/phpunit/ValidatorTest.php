@@ -15,6 +15,61 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class ValidatorTest extends TestCase {
+
+	/** @dataProvider invalidTextLengthInputProvider */
+	public function testValidate_invalidTextLengthInput(
+		string $attribute,
+		string|array $value,
+		string $exceptionClass,
+		string $message,
+	):void {
+		$document = new HTMLDocument("<form><input name='text' $attribute='2'></form>");
+		$sut = new Validator();
+
+		try {
+			$sut->validate($document->forms[0], ["text" => $value]);
+			self::fail("Invalid text input must fail validation");
+		}
+		catch(ValidationException $exception) {
+			self::assertSame($exceptionClass, $exception::class);
+			self::assertSame(["text" => $message], iterator_to_array($sut->getLastErrorList()));
+		}
+	}
+
+	public static function invalidTextLengthInputProvider():array {
+		return [
+			"minimum length with array input" => [
+				"minlength", ["valid text"],
+				\GT\DomValidation\ValidityState\TooShortException::class,
+				"This field's value must contain at least 2 characters",
+			],
+			"minimum length with malformed UTF-8" => [
+				"minlength", "\xC3\x28",
+				\GT\DomValidation\ValidityState\TooShortException::class,
+				"This field's value must contain at least 2 characters",
+			],
+			"maximum length with array input" => [
+				"maxlength", ["a"],
+				\GT\DomValidation\ValidityState\TooLongException::class,
+				"This field's value must not contain more than 2 characters",
+			],
+			"maximum length with malformed UTF-8" => [
+				"maxlength", "\xC3\x28",
+				\GT\DomValidation\ValidityState\TooLongException::class,
+				"This field's value must not contain more than 2 characters",
+			],
+		];
+	}
+
+	public function testValidate_nullOptionalText():void {
+		$document = new HTMLDocument("<form><input name='text' minlength='2' maxlength='4'></form>");
+		$sut = new Validator();
+
+		$sut->validate($document->forms[0], ["text" => null]);
+
+		self::assertCount(0, $sut->getLastErrorList());
+	}
+
 	public function testSimpleValidInput():void {
 		$document = new HTMLDocument(Helper::HTML_USERNAME_PASSWORD);
 		$form = $document->forms[0];
